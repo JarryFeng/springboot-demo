@@ -35,6 +35,15 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- mysql数据库 -->
+		<dependency>
+			<groupId>MySQL</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>6.0.4</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
