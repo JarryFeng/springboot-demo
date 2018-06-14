@@ -13,16 +13,13 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
-import java.util.regex.Pattern;
 
 /**
  * Created by jarry on 2018/5/29.
- *
+ * <p>
  * 自定义过滤器(只能过滤掉HttpServletRequest中的参数,如果过滤注解的参数 如：@RequestParam)
  * 过滤一些敏感字符
- *
  */
 public class MyFilter implements Filter {
 
@@ -40,6 +37,9 @@ public class MyFilter implements Filter {
 
     }
 
+    /**
+     * 这边会被调用两次，一次是真正的请求/hello，一次是/favicon.ico
+     */
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
@@ -65,21 +65,28 @@ public class MyFilter implements Filter {
         @Override
         public String getParameter(String name) {
             String oldString = super.getParameter(name);
-            if(!StringUtils.isEmpty(oldString)){
+            if (!StringUtils.isEmpty(oldString)) {
                 for (Iterator<String> it = set.iterator(); it.hasNext(); ) {
-                    oldString = oldString.replaceAll(it.next(),"*");
+                    oldString = oldString.replaceAll(it.next(), "*");
                 }
 
             }
 
             return oldString;
         }
+
+        @Override
+        public String[] getParameterValues(String name) {
+
+            return new String[]{this.getParameter(name)};
+            //return super.getParameterValues(name);
+        }
     }
 
     public static void main(String[] args) {
-        String oldString  = "我要测试尼玛、尼玛、你妈、你玛、草、艹、cao会不会被替换掉";
+        String oldString = "我要测试尼玛、尼玛、你妈、你玛、草、艹、cao会不会被替换掉";
         for (Iterator<String> it = set.iterator(); it.hasNext(); ) {
-            oldString = oldString.replaceAll(it.next(),"**");
+            oldString = oldString.replaceAll(it.next(), "**");
         }
         System.out.println(oldString);
     }
