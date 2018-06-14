@@ -1,0 +1,8 @@
+spring:
+  #spring-data-jpa是spring整合hibernate的jar包
+  jpa:
+    hibernate:
+      #没有就创建，有就更新
+      ddl-auto: update
+    #显示sql语句
+    show-sql: true
