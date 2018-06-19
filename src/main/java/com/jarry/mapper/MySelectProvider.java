@@ -1,9 +1,5 @@
 package com.jarry.mapper;
 
-import org.apache.ibatis.jdbc.SQL;
-
-import java.util.Map;
-
 /**
  * Created by jarry on 2018/6/14.
  * 动态SQL拼装类

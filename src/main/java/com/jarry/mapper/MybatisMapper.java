@@ -1,7 +1,12 @@
 package com.jarry.mapper;
 
 import com.jarry.domain.User;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * Created by jarry on 2018/6/14.
