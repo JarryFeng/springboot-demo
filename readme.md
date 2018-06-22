@@ -17,7 +17,13 @@
 - hibernate实现JpaRepository即可实现CRUD
 - mybatis提供注解版@Mapper和xml配置版(@MapperScan("com.jarry.mapper")和mapper-locations: classpath:mybatis/*.xml)，动态SQL拼装
 
-[版本1.0.2]：
+[版本1.0.2]：thymeleaf的使用以及未使用模版时如何跳转到页面  
+- 将要显示的页面路径放开,既不被拦截器拦截,放开拦截方式有三种
+    1. 将文件放入static文件夹下
+    2. 配置静态访问资源类， 例如MvcConfigurer.java
+    3. 静态文件的默认访问路径，以及默认文件夹，参见application.yml
+    4. 如果要使用jsp作为动态视图文件，则需要将jsp放在webapp/WEB-INF下，并导入tomcat-embed-jasper的包
+
 
 
 ## 待解决的问题
@@ -31,6 +37,10 @@
 
 
 - <h5 style="color:red">1.0.1版本</h5>需要了解mybatis所有拼装sql的方式
+
+
+- <h5 style="color:red">1.0.2版本</h5>需要了解thymeleaf有哪些标签,为什么jsp只能放在webapp/WEB-INF下  
+答：为什么jsp只能放在webapp/WEB-INF下,这个没有找到相关的信息，只知道官方给的例子就是这样的目录结构
 
 ## 参考文献
 

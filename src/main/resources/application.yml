@@ -7,3 +7,18 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
+  #未使用thymeleaf模版,视图文件必须在拦截之外，既放在static-locations配置信息指向的文件夹下,如果是jsp，必须放在webapp/WEB-INF下才能访问到
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/
+#      suffix: .jsp
+    #表示所有的访问都经过静态资源路径
+    static-path-pattern: /**
+    #默认classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+    #静态资源路径
+    #resources:
+      #static-locations:
+  #使用模版
+  thymeleaf:
+    suffix: .html
+    prefix: classpath:/templates/
