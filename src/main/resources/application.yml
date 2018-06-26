@@ -22,3 +22,6 @@ spring:
   thymeleaf:
     suffix: .html
     prefix: classpath:/templates/
+
+server:
+  port:  8083

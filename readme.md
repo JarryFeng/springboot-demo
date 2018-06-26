@@ -23,6 +23,9 @@
     2. 配置静态访问资源类， 例如MvcConfigurer.java
     3. 静态文件的默认访问路径，以及默认文件夹，参见application.yml
     4. 如果要使用jsp作为动态视图文件，则需要将jsp放在webapp/WEB-INF下，并导入tomcat-embed-jasper的包
+      
+[版本1.0.3]：自定义properties,(1)使用@ConfigurationProperties注解指定自定义属性的前缀该注解需结合@EnableConfigurationProperties一起使用
+(2)使用@PropertySource+@Component或者@Configuration
 
 
 
@@ -40,7 +43,13 @@
 
 
 - <h5 style="color:red">1.0.2版本</h5>需要了解thymeleaf有哪些标签,为什么jsp只能放在webapp/WEB-INF下  
-答：为什么jsp只能放在webapp/WEB-INF下,这个没有找到相关的信息，只知道官方给的例子就是这样的目录结构
+答：为什么jsp只能放在webapp/WEB-INF下,这个没有找到相关的信息，只知道官方给的例子就是这样的目录结构,有webapp/WEB-INF目录打的是war包，没有打的是jar包
+
+
+- <h5 style="color:red">1.0.3版本</h5>SpringBoot如何默认加载application.properties/application.yml文件的？如果这两个文件都存在并且存在相关属性,优先取谁的？
+答:服务启动时ConfigFileApplicationListener.java会进行监听执行，主要是getSearchLocations()方法,获取文件夹路径(classpath:/,classpath:/config/,file:./,file:./config/")
+循环获取文件夹路径下的默认文件，默认文件由getSearchNames()方法获取，默认以application为文件名的文件，文件类型由loader.getFileExtensions()获取,主要由PropertiesPropertySourceLoader和YamlPropertySourceLoader实现了PropertySourceLoader并重写了该方法，并且
+从测试结果来说,优先取roperties中的，具体是如何选择的有待寻找源码
 
 ## 参考文献
 
