@@ -3,6 +3,7 @@ package com.jarry.controller;
 import com.jarry.domain.User;
 import com.jarry.service.HibernateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,5 +50,10 @@ public class HibernateController {
         user.setName(name);
         user.setPassword(password);
         return hibernateService.updateUser(user);
+    }
+
+    @RequestMapping("/user/findAll")
+    public Page<User> findAll(int page){
+        return hibernateService.findAll(page);
     }
 }

@@ -27,6 +27,7 @@
 [版本1.0.3]：自定义properties,(1)使用@ConfigurationProperties注解指定自定义属性的前缀该注解需结合@EnableConfigurationProperties一起使用
 (2)使用@PropertySource+@Component或者@Configuration
 
+[版本1.0.4]：(1)对版本1.0.1进行完善,添加分页信息查询(2)应用启动完成之前，初始化一些资源，例如初始化线程池，提前加载好加密证书等。具体详见MyRunner
 
 
 ## 待解决的问题

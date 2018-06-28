@@ -4,6 +4,9 @@ import com.jarry.domain.User;
 import com.jarry.domain.UserRepository;
 import com.jarry.service.HibernateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -50,5 +53,15 @@ public class HibernateServiceImpl implements HibernateService {
             return userRepository.saveAndFlush(user);
         }
         return null;
+    }
+
+    @Override
+    public Page<User> findAll(int page) {
+        Pageable pageable = new PageRequest(page,10);
+        Page<User> users = userRepository.findAll(pageable);
+        for (User u : users){
+            System.out.println(u.getName());
+        }
+        return users;
     }
 }

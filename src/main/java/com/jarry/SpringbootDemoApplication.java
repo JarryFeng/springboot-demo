@@ -23,6 +23,8 @@ public class SpringbootDemoApplication extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
+        System.out.println("应用启动之前");
         SpringApplication.run(SpringbootDemoApplication.class, args);
+        System.out.println("应用启动之后");
     }
 }
