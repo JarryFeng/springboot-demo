@@ -5,8 +5,11 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
+
+import java.util.List;
 
 /**
  * Created by jarry on 2018/6/14.
@@ -16,7 +19,7 @@ public interface MybatisMapper {
 
     //@Select("select * from tbl_user where id =#{id}")
     //动态SQL方式二
-    @SelectProvider(type= MySelectProvider.class, method="packageSelectSql")
+    @SelectProvider(type = MySelectProvider.class, method = "packageSelectSql")
     public User selectOne(Integer id);
 
     @Delete("delete from tbl_user where id =#{id}")
@@ -35,4 +38,7 @@ public interface MybatisMapper {
             "</where>" +
             "</script>")
     public int update(User user);
+
+    @Select("select * from tbl_user")
+    List<User> findAll();
 }

@@ -1,7 +1,7 @@
 spring:
   profiles:
     #当前应用环境
-    active: hibernate
+    active: mybatis
   datasource:
     url: jdbc:mysql://101.132.40.203:3306/test
     driver-class-name: com.mysql.jdbc.Driver

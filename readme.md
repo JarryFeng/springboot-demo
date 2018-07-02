@@ -27,7 +27,10 @@
 [版本1.0.3]：自定义properties,(1)使用@ConfigurationProperties注解指定自定义属性的前缀该注解需结合@EnableConfigurationProperties一起使用
 (2)使用@PropertySource+@Component或者@Configuration
 
-[版本1.0.4]：(1)对版本1.0.1进行完善,添加分页信息查询(2)应用启动完成之前，初始化一些资源，例如初始化线程池，提前加载好加密证书等。具体详见MyRunner
+[版本1.0.4]：(1)添加spring-data-jpa对hibernate的分页对象Pageable(2)应用启动完成之前，初始化一些资源，例如初始化线程池，提前加载好加密证书等。具体详见MyRunner
+
+[版本1.0.5]：(1)添加mybatis的分页插件PageHelper,5.0.0以前的版本直接使用PageHelper，5.0.0之后的版本改成了PageInterceptor
+
 
 
 ## 待解决的问题
@@ -51,6 +54,10 @@
 答:服务启动时ConfigFileApplicationListener.java会进行监听执行，主要是getSearchLocations()方法,获取文件夹路径(classpath:/,classpath:/config/,file:./,file:./config/")
 循环获取文件夹路径下的默认文件，默认文件由getSearchNames()方法获取，默认以application为文件名的文件，文件类型由loader.getFileExtensions()获取,主要由PropertiesPropertySourceLoader和YamlPropertySourceLoader实现了PropertySourceLoader并重写了该方法，并且
 从测试结果来说,优先取roperties中的，具体是如何选择的有待寻找源码
+
+- <h5 style="color:red">1.0.5版本</h5>分页插件如何进行拦截工作的？
+答：当执行DefaultSqlSession.java中selectList方法的executor.query(...)时【executor为Plugin.java中wrap方法生成的代理对象】。会通过反射调用Plugin.java的invoke方法，该方法中interceptor.intercept(new Invocation(target, method, args))【interceptor为PageInterceptor对象】,在intercept中做了分页处理。
+
 
 ## 参考文献
 

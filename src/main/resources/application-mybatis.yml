@@ -4,8 +4,8 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
   ##非注解形式的配置
-  #mapper-locations: classpath:mybatis/*.xml
-  #config-location: classpath:mybatis/mybatis-config.xml
+#  mapper-locations: classpath:mybatis/*.xml
+#  config-location: classpath:mybatis-config.xml
 
 ##控制台打印sql日志方法二,打印的比较粗略
 #logging:

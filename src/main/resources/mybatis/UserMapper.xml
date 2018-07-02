@@ -13,18 +13,22 @@
     <sql id="Base_Column_List">
         id, name, age, password
     </sql>
-    <select id="selectOne" resultMap="BaseResultMap" >
+    <!--<select id="selectOne" resultMap="BaseResultMap" >
         select
         <include refid="Base_Column_List" />
         from tbl_user
         where id =#{id}
-    </select>
+    </select>-->
 
-    <insert id="addUser" parameterMap="User" useGeneratedKeys="true" keyProperty="id">
+   <!-- <insert id="addUser" parameterMap="User" useGeneratedKeys="true" keyProperty="id">
         insert into
         tbl_user(name,age, password)
         values
         (#{name}, #{age}, #{password})
-    </insert>
+    </insert>-->
+
+    <select id="findAll" resultMap="BaseResultMap">
+        select * from tbl_user
+    </select>
 
 </mapper>
