@@ -1,7 +1,9 @@
 package com.jarry.service.impl;
 
+import com.jarry.DataSourceEnum;
 import com.jarry.domain.User;
-import com.jarry.domain.UserRepository;
+import com.jarry.dao.UserRepository;
+import com.jarry.handler.DataSourceHandler;
 import com.jarry.service.HibernateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -57,9 +59,17 @@ public class HibernateServiceImpl implements HibernateService {
 
     @Override
     public Page<User> findAll(int page) {
+        DataSourceHandler.setDataSource(DataSourceEnum.MASTER.name());
         Pageable pageable = new PageRequest(page,10);
         Page<User> users = userRepository.findAll(pageable);
         for (User u : users){
+            System.out.println(u.getName());
+        }
+
+        DataSourceHandler.setDataSource(DataSourceEnum.SLAVE.name());
+        Pageable pageable2 = new PageRequest(page,10);
+        Page<User> users2 = userRepository.findAll(pageable2);
+        for (User u : users2){
             System.out.println(u.getName());
         }
         return users;

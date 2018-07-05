@@ -2,7 +2,7 @@
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
+    cache-enabled: false
   ##非注解形式的配置
 #  mapper-locations: classpath:mybatis/*.xml
 #  config-location: classpath:mybatis-config.xml

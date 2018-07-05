@@ -1,16 +1,15 @@
 package com.jarry.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.jarry.DataSourceEnum;
 import com.jarry.domain.User;
-import com.jarry.domain.UserRepository;
+import com.jarry.handler.DataSourceHandler;
 import com.jarry.mapper.MybatisMapper;
 import com.jarry.service.MybatisService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Created by jarry on 2018/5/31.
@@ -45,7 +44,13 @@ public class MybatisServiceImpl implements MybatisService {
 
     @Override
     public List<User> findAll() {
+        DataSourceHandler.setDataSource(DataSourceEnum.SLAVE.name());
         PageHelper.startPage(1,5);
-        return mybatisMapper.findAll();
+        List<User> userList1 = mybatisMapper.findAll();
+        DataSourceHandler.setDataSource(DataSourceEnum.MASTER.name());
+        PageHelper.startPage(1,5);
+        List<User> userList2 = mybatisMapper.findAll();
+
+        return userList1;
     }
 }

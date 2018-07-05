@@ -1,7 +1,8 @@
 spring:
   profiles:
     #当前应用环境
-    active: mybatis
+    active: hibernate
+#当一个数据源的情况
   datasource:
     url: jdbc:mysql://101.132.40.203:3306/test
     driver-class-name: com.mysql.jdbc.Driver
@@ -25,3 +26,16 @@ spring:
 
 server:
   port:  8083
+
+#多数据源的情况
+multiple:
+  db01:
+    jdbc-url: jdbc:mysql://101.132.40.203:3306/test1
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+  db02:
+      jdbc-url: jdbc:mysql://101.132.40.203:3306/test
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 123456

@@ -1,12 +1,7 @@
-package com.jarry.domain;
+package com.jarry.dao;
 
+import com.jarry.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
  * Created by jarry on 2018/6/14.
