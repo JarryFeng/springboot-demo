@@ -18,4 +18,6 @@ public interface MybatisService {
     int updateUser(User user);
 
     List<User> findAll();
+
+    void testTransation();
 }

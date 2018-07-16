@@ -53,4 +53,9 @@ public class MybatisController {
         List<User> list = mybatisService.findAll();
         return new PageInfo<User>(list);
     }
+
+    @RequestMapping("/user/ts")
+    public void testTransation() {
+        mybatisService.testTransation();
+    }
 }

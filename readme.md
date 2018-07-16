@@ -33,6 +33,8 @@
 
 [版本1.0.6]：(1)添加spring-jpa对多数据源的支持(2)添加mybatis对多数据源的支持
 
+[版本1.0.7]：(1)添加spring-jpa对事务的支持(2)添加mybatis对事务的支持(3)全局异常捕获
+
 
 
 ## 待解决的问题
@@ -61,7 +63,10 @@
 答：当执行DefaultSqlSession.java中selectList方法的executor.query(...)时【executor为Plugin.java中wrap方法生成的代理对象】。会通过反射调用Plugin.java的invoke方法，该方法中interceptor.intercept(new Invocation(target, method, args))【interceptor为PageInterceptor对象】,在intercept中做了分页处理。
 
 - <h5 style="color:red">1.0.6版本</h5>需要了解spring-data-jpa与mybatis的核心对象
-答：mybatis的核心对象是SqlSessionFactory, spring-data-jpa核心对象是LocalContainerEntityManagerFactoryBean
+答：mybatis的核心对象是SqlSessionFactoryBean, spring-data-jpa核心对象是LocalContainerEntityManagerFactoryBean
+
+- <h5 style="color:red">1.0.7版本</h5>执行sql时执行了哪些操作?
+
 
 ## 参考文献
 
