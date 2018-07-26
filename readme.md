@@ -33,7 +33,7 @@
 
 [版本1.0.6]：(1)添加spring-jpa对多数据源的支持(2)添加mybatis对多数据源的支持
 
-[版本1.0.7]：(1)添加spring-jpa对事务的支持(2)添加mybatis对事务的支持(3)全局异常捕获
+[版本1.0.7]：(1)添加spring-jpa对事务的支持(2)添加mybatis对事务的支持(3)全局异常捕获(4)分布式事务+动态切换数据源：https://github.com/JarryFeng/springboot-atomikos/tree/master
 
 
 

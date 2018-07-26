@@ -34,7 +34,7 @@ import java.util.Properties;
  * 2.使用tomcat-jdbc连接池创建数据源
  */
 
-//@Configuration
+@Configuration
 public class MyDataSourceConfig {
     /**
      * 数据源1

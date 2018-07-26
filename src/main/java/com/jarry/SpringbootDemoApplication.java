@@ -2,6 +2,7 @@ package com.jarry;
 
 import com.jarry.config.MyDataSourceConfig;
 import com.jarry.properties.MyProperties;
+import com.jarry.properties.MyProperties3;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +16,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @EnableConfigurationProperties使用自定义属性类
  */
 
-@EnableConfigurationProperties({MyProperties.class})
+@EnableConfigurationProperties({MyProperties.class, MyProperties3.class})
 @SpringBootApplication
 public class SpringbootDemoApplication extends SpringBootServletInitializer {
 

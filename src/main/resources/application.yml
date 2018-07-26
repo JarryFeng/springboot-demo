@@ -39,3 +39,26 @@ multiple:
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: 123456
+
+
+#设置各种属性的值
+#顶节点不能用驼峰标识，必须全小写或者 - 分隔
+myprop:
+  myMap:
+    myKey1:
+      id: 11
+      name: 12
+      password: 13
+      age: 14
+    myKey2:
+          id: 21
+          name: 22
+          password: 23
+          age: 24
+  myList:
+      - list1
+      - list2
+  myListMap:
+      - value1: 值1
+        value2: 值2
+  myArray: 1,2,3,4,5
