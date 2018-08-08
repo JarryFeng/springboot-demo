@@ -7,6 +7,7 @@ import com.jarry.handler.DataSourceHandler;
 import com.jarry.mapper.MybatisMapper;
 import com.jarry.service.MybatisService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,6 +47,7 @@ public class MybatisServiceImpl implements MybatisService {
     }
 
     @Override
+    @Cacheable("test")
     public List<User> findAll() {
         DataSourceHandler.setDataSource(DataSourceEnum.SLAVE.name());
         PageHelper.startPage(1,5);

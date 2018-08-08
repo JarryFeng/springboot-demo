@@ -35,6 +35,8 @@
 
 [版本1.0.7]：(1)添加spring-jpa对事务的支持(2)添加mybatis对事务的支持(3)全局异常捕获(4)分布式事务+动态切换数据源：https://github.com/JarryFeng/springboot-atomikos/tree/master
 
+[版本1.0.8]：(1)添加SpringBoot对ehcache的集成,ehcache.xml配置实现
+
 
 
 ## 待解决的问题
