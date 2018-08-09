@@ -37,6 +37,8 @@
 
 [版本1.0.8]：(1)添加SpringBoot对ehcache的集成,ehcache.xml配置实现
 
+[版本1.0.8.1]：(1)添加SpringBoot对ehcache的集成,无ehcache.xml配置,完全代码整合ehcache缓存
+
 
 
 ## 待解决的问题
@@ -68,6 +70,8 @@
 答：mybatis的核心对象是SqlSessionFactoryBean, spring-data-jpa核心对象是LocalContainerEntityManagerFactoryBean
 
 - <h5 style="color:red">1.0.7版本</h5>执行sql时执行了哪些操作?
+
+- <h5 style="color:red">1.0.8*版本</h5>需要了解ehcache的参数含义。
 
 
 ## 参考文献
