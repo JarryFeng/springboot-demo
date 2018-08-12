@@ -72,6 +72,13 @@
 		</dependency>
 		<!-- end -->
 
+		<!-- 监控工具actuator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<version>2.0.2.RELEASE</version>
+		</dependency>
+
 		<!-- jstl标签 -->
 		<dependency>
 			<groupId>jstl</groupId>

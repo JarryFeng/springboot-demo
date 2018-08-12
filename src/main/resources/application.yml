@@ -24,9 +24,6 @@ spring:
     suffix: .html
     prefix: classpath:/templates/
 
-server:
-  port:  8083
-
 #多数据源的情况
 multiple:
   db01:
@@ -62,3 +59,11 @@ myprop:
       - value1: 值1
         value2: 值2
   myArray: 1,2,3,4,5
+
+
+#将所有监控接口的监控权限开发出去
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

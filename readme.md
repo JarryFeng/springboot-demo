@@ -39,6 +39,8 @@
 
 [版本1.0.8.1]：(1)添加SpringBoot对ehcache的集成,无ehcache.xml配置,完全代码整合ehcache缓存
 
+[版本1.0.9]：(1)添加监控工具actuator(2)使用AdminUI展示监控信息,具体demo参见
+
 
 
 ## 待解决的问题
